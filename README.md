@@ -186,9 +186,3 @@ and is a good option if your college expects an IDE-based demo.
 | App window doesn't show any data after restarting | Make sure you're running the app from the *same* folder each time — the `data/finance_manager.db` file is created relative to your current directory |
 | "That username is already taken" | Someone (maybe you, previously) already registered that username — pick another, or delete `data/finance_manager.db` to start fresh (**this erases all data**) |
 
-## Notes for Your Project Report
-
-- **Architecture pattern:** DAO (Data Access Object) pattern separates SQL/database code (`dao/` package) from the GUI (`ui/` package) and plain data holders (`model/` package) — a standard layered design worth mentioning in a viva/presentation.
-- **Security:** passwords are never stored in plain text — `PasswordUtil` salts and hashes them with SHA-256 before they touch the database.
-- **Persistence:** SQLite is a real relational database (not just a flat file), supporting proper foreign keys (e.g., a category can't be deleted while transactions still reference it) and SQL joins (transactions are joined with categories to show category names).
-- **No internet/server required:** the whole app — GUI, logic, and database — runs entirely on the local machine.
